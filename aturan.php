@@ -90,7 +90,6 @@ $aturan = get_aturan();
 </div>
 <script>
 	function simpan_aturan(output) {
-
 		$.ajax({
 			url: 'ajax.php?m=simpan_aturan',
 			type: 'post',

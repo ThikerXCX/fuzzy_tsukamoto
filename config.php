@@ -2,4 +2,4 @@
 $config["server"] = 'localhost';
 $config["username"] = 'root';
 $config["password"] = '';
-$config["database_name"] = 'tsukamoto_produksi';
+$config["database_name"] = 'tsukamoto';
