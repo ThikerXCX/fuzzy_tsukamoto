@@ -19,16 +19,58 @@ $row = $db->get_row("SELECT * FROM tb_training WHERE id_training='$_GET[ID]'");
                 </select>
             </div>
             <div class="form-group">
-                <label>Permintaan <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="permintaan" value="<?= set_value('permintaan', $row->permintaan) ?>" />
+                <label>Bentuk <span class="text-danger">*</span></label>
+                <select class="form-control" name="bentuk" id="bentuk" >
+                <option value="1" <?php echo $row->bentuk == 1 ?"Selected":"" ?>>Kecil</option>
+                <option value="2" <?php echo $row->bentuk == 2 ?"Selected":"" ?>>Setengah Mangkok</option>
+                <option value="3" <?php echo $row->bentuk == 3 ?"Selected":"" ?>>Mangkok</option>
+                </select>
             </div>
             <div class="form-group">
-                <label>Persediaan <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="persediaan" value="<?= set_value('persediaan', $row->persediaan) ?>" />
+                <label>Warna <span class="text-danger">*</span></label>
+                <select class="form-control" name="warna" id="warna" value="<?= set_value('warna') ?>">
+                <option value="1" <?php echo $row->bentuk == 1 ?"Selected":"" ?>>Kuning Pekat</option>
+                <option value="2" <?php echo $row->bentuk == 2 ?"Selected":"" ?>>Kuning</option>
+                <option value="3" <?php echo $row->bentuk == 3 ?"Selected":"" ?>>Putih</option>
+                </select>
             </div>
             <div class="form-group">
-                <label>Produksi <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="produksi" value="<?= set_value('produksi', $row->produksi) ?>" />
+                <label>Ukuran <span class="text-danger">*</span></label>
+                <select class="form-control" name="ukuran" id="ukuran" value="<?= set_value('ukuran') ?>">
+                <option value="1" <?php echo $row->bentuk == 1 ?"Selected":"" ?>>Kecil</option>
+                <option value="2" <?php echo $row->bentuk == 2 ?"Selected":"" ?>>Sedang</option>
+                <option value="3" <?php echo $row->bentuk == 3 ?"Selected":"" ?>>Besar</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Kondisi <span class="text-danger">*</span></label>
+                <select class="form-control" name="kondisi" id="kondisi" value="<?= set_value('kondisi') ?>">
+                <option value="1" <?php echo $row->bentuk == 1 ?"Selected":"" ?>>Berbulu</option>
+                <option value="2" <?php echo $row->bentuk == 2 ?"Selected":"" ?>>Kotor</option>
+                <option value="3" <?php echo $row->bentuk == 3 ?"Selected":"" ?>>Bersih</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tekstur <span class="text-danger">*</span></label>
+                <select class="form-control" name="tekstur" id="tekstur" value="<?= set_value('tekstur') ?>">
+                <option value="1" <?php echo $row->bentuk == 1 ?"Selected":"" ?>>Sangat Keras</option>
+                <option value="2" <?php echo $row->bentuk == 2 ?"Selected":"" ?>>Lentur</option>
+                <option value="3" <?php echo $row->bentuk == 3 ?"Selected":"" ?>>Keras</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Jenis Sarang <span class="text-danger">*</span></label>
+                <select class="form-control" name="jenis_sarang" id="jenis_sarang" value="<?= set_value('jenis_sarang') ?>">
+                <option value="c" <?php echo $row->bentuk == 'c' ?"Selected":"" ?>>C</option>
+                <option value="b" <?php echo $row->bentuk == 'b' ?"Selected":"" ?>>B</option>
+                <option value="a"<?php echo $row->bentuk == "a" ?"Selected":"" ?>>A</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="keterangan">
+                    Jenis Sarang <span class="text-danger">*</span>
+                </label>
+                <input type="number" class="form-control" name="keterangan" id="keterangan" value="<?= set_value('keterangan',$row->keterangan)?>">
             </div>
             <div class="form-group">
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Simpan</button>

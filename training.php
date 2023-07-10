@@ -26,9 +26,13 @@
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>Produk</th>
-                    <th>Permintaan</th>
-                    <th>Persediaan</th>
-                    <th>Produksi</th>
+                    <th>Bentuk</th>
+                    <th>Warna</th>
+                    <th>Ukuran</th>
+                    <th>Kondisi</th>
+                    <th>Tekstur</th>
+                    <th>Jenis Sarang</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -47,9 +51,74 @@
                     <td><?= ++$no ?></td>
                     <td><?= date('M Y', strtotime($row->tanggal_training)) ?></td>
                     <td><?= $row->nama_produk ?></td>
-                    <td><?= number_format($row->permintaan) ?></td>
-                    <td><?= number_format($row->persediaan) ?></td>
-                    <td><?= number_format($row->produksi) ?></td>
+
+                    <td>
+                        <?php 
+                            if($row->bentuk == 1){
+                                echo "Kecil";
+                            }elseif($row->bentuk == 2){
+                                echo "Setengah Mangkok";
+                            }else{
+                                echo "Mangkok";
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            if($row->warna == 1){
+                                echo "Kuning Pekat";
+                            }elseif($row->warna == 2){
+                                echo "Kuning";
+                            }else{
+                                echo "Putih";
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            if($row->ukuran == 1){
+                                echo "Kecil";
+                            }elseif($row->ukuran == 2){
+                                echo "Sedang";
+                            }else{
+                                echo "Besar";
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            if($row->kondisi == 1){
+                                echo "Berbulu";
+                            }elseif($row->kondisi == 2){
+                                echo "Kotor";
+                            }else{
+                                echo "Bersih";
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            if($row->tekstur == 1){
+                                echo "Sangat keras";
+                            }elseif($row->tekstur == 2){
+                                echo "Lentur";
+                            }else{
+                                echo "Keras";
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            if($row->jenis_sarang == 'C'){
+                                echo "C";
+                            }elseif($row->jenis_sarang == 'B'){
+                                echo "B";
+                            }else{
+                                echo "A";
+                            }
+                        ?>
+                    </td>
+                    <td>Rp. <?= number_format($row->keterangan) ?></td>
                     <td>
                         <a class="btn btn-xs btn-warning" href="?m=training_ubah&ID=<?= $row->id_training ?>"><span class="glyphicon glyphicon-edit"></span></a>
                         <a class="btn btn-xs btn-danger" href="aksi.php?act=training_hapus&ID=<?= $row->id_training ?>" onclick="return confirm('Hapus data?')"><span class="glyphicon glyphicon-trash"></span></a>

@@ -159,25 +159,33 @@ elseif ($mod == 'produk_tambah') {
 elseif ($mod == 'training_tambah') {
     $tanggal_training = $_POST['tanggal_training'];
     $id_produk = $_POST['id_produk'];
-    $persediaan = $_POST['persediaan'];
-    $permintaan = $_POST['permintaan'];
-    $produksi = $_POST['produksi'];
-    if ($tanggal_training == '' || $id_produk == '' || $persediaan == '' || $permintaan == '' || $produksi == '')
+    $bentuk = $_POST['bentuk'];
+    $warna = $_POST['warna'];
+    $ukuran = $_POST['ukuran'];
+    $kondisi = $_POST['kondisi'];
+    $tekstur = $_POST['tekstur'];
+    $jenis_sarang = $_POST['jenis_sarang'];
+    $keterangan = $_POST['keterangan'];
+    if ($tanggal_training == '' || $id_produk == '' || $bentuk == '' ||$warna=='' || $ukuran == '' || $kondisi == '' || $tekstur == '' || $jenis_sarang == '' || $keterangan == '')
         print_msg("Field bertanda * tidak boleh kosong!");
     else {
-        $db->query("INSERT INTO tb_training (tanggal_training, id_produk, persediaan, permintaan, produksi) VALUES ('$tanggal_training', '$id_produk', '$persediaan', '$permintaan', '$produksi')");
+        $db->query("INSERT INTO tb_training (tanggal_training, id_produk, bentuk, warna, ukuran, kondisi, tekstur, jenis_sarang, keterangan) VALUES ('$tanggal_training', '$id_produk', '$bentuk', '$warna', '$ukuran', '$kondisi', '$tekstur', '$jenis_sarang', '$keterangan')");
         redirect_js("index.php?m=training");
     }
 } else if ($mod == 'training_ubah') {
     $tanggal_training = $_POST['tanggal_training'];
     $id_produk = $_POST['id_produk'];
-    $persediaan = $_POST['persediaan'];
-    $permintaan = $_POST['permintaan'];
-    $produksi = $_POST['produksi'];
-    if ($tanggal_training == '' || $id_produk == '' || $persediaan == '' || $permintaan == '' || $produksi == '')
+    $bentuk = $_POST['bentuk'];
+    $warna = $_POST['warna'];
+    $ukuran = $_POST['ukuran'];
+    $kondisi = $_POST['kondisi'];
+    $tekstur = $_POST['tekstur'];
+    $jenis_sarang = $_POST['jenis_sarang'];
+    $keterangan = $_POST['keterangan'];
+    if ($tanggal_training == '' || $id_produk == '' || $bentuk == '' ||$warna=='' || $ukuran == '' || $kondisi == '' || $tekstur == '' || $jenis_sarang == '' || $keterangan == '')
         print_msg("Field bertanda * tidak boleh kosong!");
     else {
-        $db->query("UPDATE tb_training SET tanggal_training='$tanggal_training', id_produk='$id_produk', persediaan='$persediaan', permintaan='$permintaan', produksi='$produksi' WHERE id_training='$_GET[ID]'");
+        $db->query("UPDATE tb_training SET tanggal_training='$tanggal_training', id_produk='$id_produk', bentuk='$bentuk', warna='$warna', ukuran='$ukuran', kondisi='$kondisi', tekstur='$tekstur', jenis_sarang='$jenis_sarang', keterangan='$keterangan' WHERE id_training='$_GET[ID]'");
         redirect_js("index.php?m=training");
     }
 } else if ($act == 'training_hapus') {
